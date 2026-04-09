@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ===== Brand / Accent ===== */
+  --color-primary: #c0c1ff;
+  --color-primary-container: #8083ff;
+  --color-on-primary: #1000a9;
+
+  --color-tertiary: #dbb8ff;
+  --color-tertiary-container: #6d5fa3;
+
+  --color-surface: #0b1326;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #1b2338;
+  --color-surface-container-high: #222a3d;
+  --color-surface-bright: #31394d;
+
+  /* ===== Glass ===== */
+  --color-surface-variant: rgba(45, 52, 73, 0.4);
+
+  /* ===== Text ===== */
+  --color-on-surface-light: #c7d2fe;
+  --color-surface-light: #94a3b8;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c7c4d7;
+  --color-on-primary-container: #e0e1ff;
+
+  /* ===== Utility ===== */
+  --color-outline-variant: rgba(70, 69, 84, 0.15);
+  --shadow-main: 0 20px 40px rgba(6, 14, 32, 0.5);
+  --font-inter: "Inter", sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
+}
+@layer utilities {
+  .transition {
+    @apply transition-all ease-in-out duration-300;
+  }
+}
+/* ===== font ===== */
+.display_lg {
+  font-size: 3.5rem;
+  letter-spacing: -0.04rem;
+}
+.headline_md {
+  font-size: 1.75rem;
+}
+.label_md {
+  font-size: 0.75rem;
+}
+.Container {
+  max-width: 1536px;
+  width: 100%;
+  margin: auto;
+  padding-inline-start: 32px;
+  padding-inline-end: 32px;
+}
