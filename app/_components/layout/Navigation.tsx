@@ -12,7 +12,7 @@ const navList = [
 
 const Navigation = () => {
   return (
-    <header className="h-20  absolute top-0  Container flex w-full items-center justify-between backdrop-blur-xl shadow-main bg-[#0F172A66]">
+    <header className="h-20  absolute top-0 left-1/2 -translate-x-1/2  Container flex w-full items-center justify-between backdrop-blur-xl shadow-main bg-[#0F172A66]">
       <Link href="/" className="text-on-surface-light font-inter text-xl">
         Mariam El-sarag
       </Link>
