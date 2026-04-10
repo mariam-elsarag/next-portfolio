@@ -10,9 +10,9 @@ const Hero = () => {
       <Shape size="384px" align="left" />
 
       <section className="flex flex-col gap-8 text-center items-center justify-center">
-        <div className="flex flex-col gap-2 items-center justify-center text-center">
+        <div className="flex flex-col gap-3 items-center justify-center text-center">
           <span className="text-tertiary font-space font-normal uppercase tracking-[3.6px] text-xs">
-            Front End Developer
+            Available for new opportunities{" "}
           </span>
           <p className="font-inter text-2xl font-light space-x-2 ">
             <span>Mariam</span>
