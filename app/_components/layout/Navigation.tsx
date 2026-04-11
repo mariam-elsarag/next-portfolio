@@ -23,7 +23,7 @@ const Navigation = () => {
           Mariam El-sarag
         </Link>
 
-        <ul className="hidden sm:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-8">
           {navList.map((navLink) => (
             <li key={navLink.id}>
               <ScrollLink
@@ -40,17 +40,22 @@ const Navigation = () => {
             </li>
           ))}
         </ul>
-        <div className="hidden sm:flex items-center gap-4">
-          <a href="/cv/Mariam_Tarek.pdf" download>
-            <Button text="resume" size="sm" variant="ghost" />
-          </a>
+        <div className="hidden md:flex items-center gap-4">
+          <Button
+            onClick={() =>
+              downloadPDF("/cv/Mariam_Tarek.pdf", "Mariam_Tarek.pdf")
+            }
+            text="resume"
+            size="sm"
+            variant="ghost"
+          />
           <ScrollLink smooth={true} to="contact" duration={500}>
             <Button size="sm" text="contact" />
           </ScrollLink>
         </div>
         <button
           onClick={() => setToggleSidebar(true)}
-          className="flex sm:hidden cursor-pointer outline-none shadow-none"
+          className="flex md:hidden cursor-pointer outline-none shadow-none"
         >
           <BurgerIcon />
         </button>

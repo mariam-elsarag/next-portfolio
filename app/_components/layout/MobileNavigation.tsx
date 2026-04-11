@@ -2,6 +2,8 @@ import { CloseIcon } from "@/app/_assets/icons/Icon";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 import React from "react";
+import { downloadPDF } from "@/app/_utils/downloadPDF";
+import Button from "../ui/Button";
 type navListProps = {
   id: number;
   label: string;
@@ -14,7 +16,14 @@ type Props = {
   list: navListProps[];
 };
 const MobileNavigation = ({ isOpen, onClose, list }: Props) => {
-  const navList: navListProps[] = [...list, { id: 4, label: "Resume" }];
+  const navList: navListProps[] = [
+    ...list,
+    {
+      id: 4,
+      label: "Resume",
+      onClick: () => downloadPDF("/cv/Mariam_Tarek.pdf", "Mariam_Tarek.pdf"),
+    },
+  ];
   return (
     <aside
       className={`fixed inset-0 bg-[#0B132699] transition  ${
@@ -41,22 +50,44 @@ const MobileNavigation = ({ isOpen, onClose, list }: Props) => {
         </header>
 
         <ul className="flex flex-col flex-1 gap-8">
-          {navList.map((navLink) => (
-            <li className="w-full " key={navLink.id}>
-              <ScrollLink
-                to={navLink.path}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                spy={true}
-                activeClass="text-on-surface-light "
-                className="cursor-pointer transition hover:text-on-surface-light text-surface-light font-inter border-b border-white/5 py-2 w-full flex   "
-              >
-                {navLink.label}
-              </ScrollLink>
-            </li>
-          ))}
+          {navList.map((navLink) => {
+            if (navLink?.onClick) {
+              return (
+                <li
+                  key={navLink?.id}
+                  onClick={navLink?.onClick}
+                  className="cursor-pointer transition hover:text-on-surface-light text-surface-light font-inter border-b border-white/5 py-2 w-full flex   "
+                >
+                  {navLink?.label}
+                </li>
+              );
+            } else {
+              return (
+                <li className="w-full " key={navLink.id}>
+                  <ScrollLink
+                    to={navLink.path}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
+                    spy={true}
+                    activeClass="text-on-surface-light "
+                    className="cursor-pointer transition hover:text-on-surface-light text-surface-light font-inter border-b border-white/5 py-2 w-full flex   "
+                  >
+                    {navLink.label}
+                  </ScrollLink>
+                </li>
+              );
+            }
+          })}
         </ul>
+        <ScrollLink
+          className="w-full"
+          smooth={true}
+          to="contact"
+          duration={500}
+        >
+          <Button className="w-full" size="md" text="contact" />
+        </ScrollLink>
       </nav>
     </aside>
   );

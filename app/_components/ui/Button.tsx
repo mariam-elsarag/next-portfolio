@@ -10,8 +10,9 @@ type Props = {
   variant?: "primary" | "glass" | "ghost";
   disabled?: boolean;
   loading?: boolean;
+  hasFullWidth?: boolean;
   className?: string;
-  size?: "lg" | "sm";
+  size?: "lg" | "md" | "sm";
   iconDirection?: "right" | "left";
   icon?: ReactNode;
 };
@@ -25,6 +26,7 @@ const Button = ({
   className,
   size = "lg",
   iconDirection = "right",
+  hasFullWidth = false,
   icon,
 }: Props) => {
   const router = useRouter();
@@ -38,8 +40,9 @@ const Button = ({
     ghost: "bg-transparent text-on-surface/60 font-[400]",
   };
   const sizes = {
-    lg: "text-xs tracking-[1.2px] py-5 px-10",
-    sm: "px-6 py-2 tracking-[1px] text-[10px]",
+    lg: " text-[11px] sm:text-xs  tracking-[1.2px] h-12 px-2 sm:px-4 md:px-10",
+    md: "text-xs h-11 px-4 ",
+    sm: "px-6 h-9 tracking-[1px] text-[10px]",
   };
   const spinnerStyle = {
     primary: "border-on-primary",
@@ -56,9 +59,9 @@ const Button = ({
           router.push(to);
         }
       }}
-      className={`${base} ${className ?? ""} ${styles[variant]} ${
-        sizes[size]
-      } `}
+      className={`${base} ${className ?? ""} ${hasFullWidth ? "w-full" : ""} ${
+        styles[variant]
+      } ${sizes[size]} `}
     >
       {iconDirection === "left" ? (
         loading ? (
