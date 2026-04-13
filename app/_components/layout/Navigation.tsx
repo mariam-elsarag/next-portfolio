@@ -7,14 +7,28 @@ import { useState } from "react";
 import MobileNavigation from "./MobileNavigation";
 import { BurgerIcon } from "@/app/_assets/icons/Icon";
 import { downloadPDF } from "@/app/_utils/downloadPDF";
+import { useScrollSpy } from "@/app/_hooks/useScrollSpy";
 
 const navList = [
-  { id: 1, label: "Work", path: "work" },
+  { id: 1, label: "About", path: "about" },
   { id: 2, label: "Expertise", path: "expertise" },
-  { id: 3, label: "About", path: "about" },
+  { id: 3, label: "Work", path: "work" },
 ];
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
 
+  el.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 const Navigation = () => {
+  const activeId = useScrollSpy(
+    navList.map((n) => n.path),
+    50
+  );
+
   const [toggleSidebar, setToggleSidebar] = useState(false);
   return (
     <>
@@ -23,20 +37,20 @@ const Navigation = () => {
           Mariam El-sarag
         </Link>
 
-        <ul className="hidden md:flex items-center gap-8">
-          {navList.map((navLink) => (
-            <li key={navLink.id}>
-              <ScrollLink
-                to={navLink.path}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                spy={true}
-                activeClass="text-on-surface-light border-on-surface-light pb-1"
-                className="cursor-pointer text-surface-light font-inter border-b border-transparent "
+        <ul className="hidden md:flex gap-8">
+          {navList.map((nav) => (
+            <li key={nav.id}>
+              <button
+                onClick={() => scrollToSection(nav.path)}
+                className={`border-b cursor-pointer pb-1 transition-colors
+      ${
+        activeId === nav.path
+          ? "text-on-surface-light border-on-surface-light"
+          : "text-surface-light hover:text-on-surface-light hover:border-on-surface-light border-transparent"
+      }`}
               >
-                {navLink.label}
-              </ScrollLink>
+                {nav.label}
+              </button>
             </li>
           ))}
         </ul>

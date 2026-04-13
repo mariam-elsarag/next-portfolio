@@ -38,7 +38,7 @@
     @apply transition-all ease-in-out duration-300;
   }
   .section_p {
-    @apply py-16;
+    @apply py-10 md:py-16;
   }
 }
 /* ===== font ===== */

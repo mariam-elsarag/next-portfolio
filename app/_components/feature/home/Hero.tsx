@@ -5,7 +5,7 @@ import Shape from "../../ui/Shape";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[650px]  sm:min-h-[750px] Container py-24 sm:py-20 flex flex-col items-center justify-center text-white overflow-hidden">
+    <section className="relative   sm:min-h-[750px] Container pt-28 pb-10 sm:py-20 flex flex-col items-center justify-center text-white overflow-hidden">
       <Shape size="384px" align="right" className="hidden md:flex" />
       <Shape size="384px" align="left" className="hidden md:flex" />
       <Shape
