@@ -18,7 +18,7 @@ const Navigation = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   return (
     <>
-      <header className=" h-16 sm:h-20 z-10 absolute top-0 left-1/2 -translate-x-1/2  Container flex w-full items-center justify-between backdrop-blur-xl shadow-main bg-[#0F172A66]">
+      <header className=" h-16 sm:h-20 z-10 fixed top-0 left-1/2 -translate-x-1/2  Container flex w-full items-center justify-between backdrop-blur-xl shadow-main bg-[#0F172A66]">
         <Link href="/" className="text-on-surface-light font-inter text-xl">
           Mariam El-sarag
         </Link>
