@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <div>
           <Navigation />
-          <div className="Container flex-1">{children}</div>
+          <div className=" flex-1">{children}</div>
         </div>
         <Footer />
       </body>

@@ -37,6 +37,9 @@
   .transition {
     @apply transition-all ease-in-out duration-300;
   }
+  .section_p {
+    @apply py-16;
+  }
 }
 /* ===== font ===== */
 .display_lg {
